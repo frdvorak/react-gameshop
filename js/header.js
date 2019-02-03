@@ -6,7 +6,17 @@ class Header extends Component {
     render() {
         return (
             <div id="header">
-                Header
+                <div className='contact'>
+
+                    <img src='./assets/telephone.png' />
+                    <span>1337 1337 1337</span>
+                    <img src='./assets/flag.png' />
+                    <span>
+
+                        Try another castle
+                    </span>
+                </div>
+                <img className='logo' src='./assets/logo.png' />
             </div>
         );
     }

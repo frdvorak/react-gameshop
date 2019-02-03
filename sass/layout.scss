@@ -1,66 +1,264 @@
 * { margin: 0; padding: 0}
+
+@mixin mobile-breakpoint {
+	@media (max-width: #{850px}){
+		@content;
+	}
+}
+body {
+	background-color: #000;
+	min-width: 520px;
+	font-family: 'Century Gothic', sans-serif;
+}
+
 #app {
 	width: 100vw; height: 100vh;
-	background: black;
+	min-width: 520px;
+	background-color: #000;
 	#header {
 		background: green;
 		position: absolute;
-		width: 100%;
-		height: 50px;
+		width: 95%;
+		height: 25%;
 		z-index: 2;
+		overflow: hidden;
+		.contact {
+			width: 95%;
+			height: 20px;
+			padding: 5px 80px;
+			background-color: #000;
+			color: white;
+			font-size: 12px;
+			img {
+				width: 20px;
+				margin-left: 15px;
+			}
+			span{
+				position: relative;
+				top: -5px;
+				margin-left: 5px;
+			}
+		}
+		.logo{
+			position: absolute;
+			width: 20%;
+			min-width: 200px;;
+			top: 55px;
+			left: 90px;
+		}
 	}
 	#container {
 		display: grid;
 		width: 100vw;
+		min-width: 520px;
 		height: 100vh;
-		grid-template-columns: auto 250px;
+		grid-template-columns: auto 280px;
 		grid-template-rows: auto;
 		#store {
 			width: 100%; height: 100%;
-			z-index: 1;
-			background: red;
 			position: relative;
+			z-index: 3;
+			overflow: hidden;
+			@include mobile-breakpoint {
+				overflow: visible;
+			}
 			.game-grid {
-				width: 600px;
-				height: 250px;
+				@include mobile-breakpoint {
+					grid-template-columns: 300px;
+					grid-template-rows: auto auto auto auto;
+					min-width: 300px;
+					margin: 0 auto;
+					top: 120px;
+					left: 50%;
+					transform: translate(-50%, 0);
+				}
+				min-width: 600px;
+				max-width: 900px;
+				width: 80%;
 				display: grid;
-				grid-template-columns: auto auto;
+				grid-template-columns: 50% 50%;
 				grid-template-rows: auto auto;
-				grid-gap: 5px;				
-				position: relative; left: 50%; top: 40%;
+				grid-gap: 20px;				
+				position: relative; left: 50%; top: 45%;
 				transform: translate(-50%, -50%);
 				.game-in-shop {
+					padding: 25px 20px;
+					box-sizing: border-box;
 					display: grid;
-					grid-template-columns: auto auto;
+					grid-template-columns: 145px auto;
 					grid-template-rows: auto;
 					width: 100%; height: 100%;
-					background: purple;
-					.game-box-img {
+					background: #4AD87F;
+					overflow: hidden;
+					position: relative;
+					.cover {
+						background-color: rgba(74,216,127,0.6);
+						position: absolute; top: 0; left: 0;
+						width: 100%; height: 100%;
+						z-index: -100;
+					}
+					.image-wrapper {
+						width: 125px;
 						height: 150px;
+						overflow: hidden;
+						position: relative;
+						box-shadow: 5px 5px 10px #000;
+						.game-box-img {
+							top: -2%; left: -2%;
+							width: 108%;
+							height: 108%;
+							position: absolute;
+						}
 					}
 					.info {
+						padding: 5px;
+						position: relative;
 						p {
+							margin-top: 5px;
 							font-size: 11px;
 						}
-						.coins-img {
-							width: 20px;
+						.price {
+							position: absolute;
+							bottom: 35px;
+							font-size: 12px;
+							font-weight: 900;
+							.coins-img {
+								position: relative;
+								width: 11px;
+								padding: 0 5px;
+							}
 						}
+						
 						.add-to-basket-button {
-							width: 120px; height: 30px;
+							width: 110px; height: 30px;
 							line-height: 30px;
 							color: white;
 							text-align: center; font-size: 12px;
 							background-color: black;
 							border-radius: 50px;
+							position: absolute;
+							bottom: -3px;
 						}
+					}
+					.controller-img {
+						position: absolute;
+						bottom: -25px; right: -25px;
+						width: 150px;
+						z-index: 0;
 					}
 				}
 			}
 		}
-		#basket {
-			background: blue;
-			z-index: 5;
+		
+		#basket.open {
+			position: absolute;
+			width: 100%;
+			height: 80%;
+			bottom: 0;
+			@include mobile-breakpoint {
+				top: 150px;
+			}
 		}
+		#basket.open .games-in-basket {
+			width: 60%;
+			position: relative;
+			margin: 0 auto;
+		}
+		#basket.open .basket-total {
+			width: 60%;
+			position: relative;
+			padding-top: 30px;
+			margin: 0 auto;
+			bottom: auto;
+			border-top: 1px solid black;
+			font-size: 18px;
+			.sum {
+				float: none;
+				font-weight: 900;
+			}
+		}
+		#basket {
+			background: #4AD87F;
+			z-index: 5;
+			padding: 20px;
+			box-sizing: border-box;
+			position: relative;
+			@include mobile-breakpoint {
+				position: fixed;
+				right: 0; top: 0;
+				width: 200px;
+				height: 100vh;
+			}
+			h1 {
+				font-size: 20px;
+				margin-bottom: 15px;
+			}
+			.empty-basket {
+				position: relative;
+				width: 100%;
+				top: 30%;
+				text-align: center;
+			}
+			.go-back-button {
+				display: none;
+				width: 120px; height: 25px;
+				color: #fff; background-color: #000;
+				text-align: center; font-size: 12px;
+				border-radius: 50px;
+				line-height: 25px;
+				margin-bottom: 20px;
+			}
+			
+			.game-in-basket:not(:last-child){
+				border-bottom: 1px solid black;
+			}
+			.game-in-basket {
+				display: grid;
+				grid-template-columns: 40px auto 30px;
+				grid-template-rows: auto;
+				padding: 10px 0;
+				
+				.game-box-img {
+					width: 30px;
+				}
+				h4 {
+					font-size: 12px;
+				}
+				.price {
+					font-size: 10px;
+				}
+				.coins-img {
+					width: 10px;
+					margin-right: 5px;
+				}
+				.remove-from-basket-button {
+					width: 15px;
+					margin-top: 9px;
+				}
+			}
+			.basket-total {
+				display: none;
+				position: absolute;
+				bottom: 25%;
+				width: 82%;
+				font-size: 18px;
+				.sum {
+					float: right;
+				}
+			}
+			.continue-button {
+				position: absolute;
+				width: 80%; height: 35px;
+				color: #fff; background-color: gray;
+				text-align: center; font-size: 12px;
+				border-radius: 50px;
+				line-height: 35px;
+				bottom: 15%;
+				left: 50%;
+				transform: translate(-50%, 0);
+			}
+		}
+		
 	}
 		
-}
+};
