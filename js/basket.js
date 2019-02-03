@@ -5,7 +5,15 @@ class Basket extends Component {
     state = {}
     render() {
         return (
-            <div id="basket">Basket</div>
+            <div id="basket">
+                <div className="game-grid">
+                    {this.props.basketContent.map(game => (
+
+                        <h4>{game.name}</h4>
+
+                    ))}
+                </div>
+            </div>
         );
     }
 }

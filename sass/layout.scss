@@ -21,18 +21,39 @@
 			background: red;
 			position: relative;
 			.game-grid {
-				width: 500px;
+				width: 600px;
 				height: 250px;
 				display: grid;
 				grid-template-columns: auto auto;
 				grid-template-rows: auto auto;
 				grid-gap: 5px;				
-				position: relative; left: 50%; top: 50%;
+				position: relative; left: 50%; top: 40%;
 				transform: translate(-50%, -50%);
 				.game-in-shop {
-					display: block;
+					display: grid;
+					grid-template-columns: auto auto;
+					grid-template-rows: auto;
 					width: 100%; height: 100%;
 					background: purple;
+					.game-box-img {
+						height: 150px;
+					}
+					.info {
+						p {
+							font-size: 11px;
+						}
+						.coins-img {
+							width: 20px;
+						}
+						.add-to-basket-button {
+							width: 120px; height: 30px;
+							line-height: 30px;
+							color: white;
+							text-align: center; font-size: 12px;
+							background-color: black;
+							border-radius: 50px;
+						}
+					}
 				}
 			}
 		}
