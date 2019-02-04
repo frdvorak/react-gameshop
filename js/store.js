@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../sass/layout.scss';
 
 class Store extends Component {
-    state = {}
     componentDidMount = () => {
         /*const gameGrid = document.querySelector('.game-grid');
         //const imgPath = `game${game.id}`;
@@ -24,8 +23,10 @@ class Store extends Component {
         return (
             <div id="store">
                 <div className="game-grid">
+                    {/* Map over all the games and show them in the store */}
                     {this.props.games.map(game => (
                         <div key={game.id} className="game-in-shop">
+                            {/* Once a video game has been added to the basket, it cannot be added again */}
                             <div className='cover'
                                 style={{ zIndex: this.props.basketContent.indexOf(game) === -1 ? -100 : 100 }}
                             ></div>
