@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import '../sass/layout.scss';
 
 class Basket extends Component {
-    state = {
-        inBasket: false,
-    }
-
     render() {
         return (
             <div id="basket">
@@ -21,7 +17,7 @@ class Basket extends Component {
                             <img className='game-box-img' src={game.image}></img>
                             <div className='info'>
                                 <h4>{game.name}</h4>
-                                <span className='price'><img className='coins-img' src="./assets/coins.png" />{game.price} Gil</span>
+                                <span className='price'><img className='coins-img' src="../assets/coins.png" />{game.price} Gil</span>
                             </div>
                             <div onClick={() => this.props.removeFromBasket(game)} ><img className='remove-from-basket-button' src='./assets/bin.png' /></div>
                         </div>

@@ -18,7 +18,7 @@ body {
 	#header {
 		background: green;
 		position: absolute;
-		width: 95%;
+		width: 100%;
 		height: 25%;
 		z-index: 2;
 		overflow: hidden;
@@ -116,6 +116,9 @@ body {
 						p {
 							margin-top: 5px;
 							font-size: 11px;
+							@include mobile-breakpoint {
+								font-size: 8px;
+							}
 						}
 						.price {
 							position: absolute;
@@ -170,7 +173,7 @@ body {
 			padding-top: 30px;
 			margin: 0 auto;
 			bottom: auto;
-			border-top: 1px solid black;
+			border-top: 1px solid rgba(0,0,0,0.3);
 			font-size: 18px;
 			.sum {
 				float: none;
@@ -190,8 +193,9 @@ body {
 				height: 100vh;
 			}
 			h1 {
-				font-size: 20px;
+				font-size: 35px;
 				margin-bottom: 15px;
+				font-weight: 900;
 			}
 			.empty-basket {
 				position: relative;
@@ -210,13 +214,13 @@ body {
 			}
 			
 			.game-in-basket:not(:last-child){
-				border-bottom: 1px solid black;
+				border-bottom: 1px solid rgba(0,0,0,0.5);
 			}
 			.game-in-basket {
 				display: grid;
 				grid-template-columns: 40px auto 30px;
 				grid-template-rows: auto;
-				padding: 10px 0;
+				padding: 15px 0;
 				
 				.game-box-img {
 					width: 30px;
@@ -241,9 +245,11 @@ body {
 				position: absolute;
 				bottom: 25%;
 				width: 82%;
+				color: #4A4A4A;
 				font-size: 18px;
 				.sum {
 					float: right;
+					color: #000;
 				}
 			}
 			.continue-button {

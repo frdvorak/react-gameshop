@@ -4,9 +4,9 @@ import '../sass/layout.scss';
 class Store extends Component {
     state = {}
     componentDidMount = () => {
-        const gameGrid = document.querySelector('.game-grid');
+        /*const gameGrid = document.querySelector('.game-grid');
         //const imgPath = `game${game.id}`;
-        /*const html = this.props.games.map(game =>
+        const html = this.props.games.map(game =>
             `
             <div className="game-in-shop">
                 <img className='game-box-img' src="game1.jpg">
@@ -21,7 +21,6 @@ class Store extends Component {
     }
 
     render() {
-        //console.log(this.props.games);
         return (
             <div id="store">
                 <div className="game-grid">
@@ -38,7 +37,6 @@ class Store extends Component {
                                 <p>{game.description}</p>
                                 <span className='price'><img className='coins-img' src="./assets/coins.png" />{game.price} Gil</span>
                                 <div className='add-to-basket-button' onClick={() => this.props.addToBasket(game)} >Add to Basket</div>
-
                             </div>
                         </div>
                     ))}

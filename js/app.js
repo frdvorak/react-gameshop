@@ -13,7 +13,6 @@ class App extends Component {
     };
     addToBasket = (game) => {
         let basket = [...this.state.basket];
-        document.querySelector('.cover').style.zInder = '100';
         if (basket.indexOf(game) === -1) {
             basket.push(game);
             var basketTotal = this.state.basketTotal + game.price;
@@ -28,7 +27,6 @@ class App extends Component {
         basket = basket.filter(elem => elem !== game)
         let basketTotal = this.state.basketTotal - game.price;
         if (basket.length === 0) {
-            //document.querySelector('.games-in-basket').style.display = 'none';
             document.querySelector('.basket-total').style.display = 'none';
 
         }
