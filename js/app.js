@@ -37,7 +37,7 @@ class App extends Component {
         basket = basket.filter(elem => elem !== game)
         // calculate total price:
         let basketTotal = this.state.basketTotal - game.price;
-        // hide total price is the basket is empty:
+        // hide total price if the basket is empty:
         if (basket.length === 0) {
             document.querySelector('.basket-total').style.display = 'none';
         }
@@ -64,7 +64,7 @@ class App extends Component {
 
     render() {
         return (
-            <div id="app">
+            <div id="wrapper">
                 <Header />
                 <div id="container">
                     <Store
@@ -81,9 +81,7 @@ class App extends Component {
                         leaveBasket={this.leaveBasket}
                     />
                 </div>
-
             </div>
-
         );
     }
 }
